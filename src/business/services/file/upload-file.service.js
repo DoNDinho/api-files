@@ -9,7 +9,7 @@ const execute = async (file) => {
   try {
     decodeBase64(file.base64)
     const uploadData = createUploadData(file, filePath)
-    console.log(uploadData)
+    return { message: uploadData }
     await uploadFile(uploadData)
     deleteFile(filePath)
     return { file: { url: createUrl(file) } }
