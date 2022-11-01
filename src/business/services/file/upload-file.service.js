@@ -2,14 +2,14 @@
 const fs = require('fs')
 const path = require('path')
 const { uploadFile } = require('../../utils/storage/storage')
-const filePath = path.join(__dirname, '../../../../documents/file')
+// const filePath = path.join(__dirname, '../../../../documents/file')
 const FILE_URL = process.env.FILE_URL
 
 const execute = async (file) => {
   try {
+    return { message: __dirname }
     decodeBase64(file.base64)
     const uploadData = createUploadData(file, filePath)
-    return { message: uploadData }
     await uploadFile(uploadData)
     deleteFile(filePath)
     return { file: { url: createUrl(file) } }
