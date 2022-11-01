@@ -6,7 +6,7 @@ const FILE_URL = process.env.FILE_URL
 
 const execute = async (file) => {
   try {
-    const filePath = path.join(process.cwd(), '/file')
+    const filePath = path.join(process.cwd(), '/documents/file')
     // const filePath = path.join(__dirname, '../../../../documents/file')
     await decodeBase64(filePath, file.base64)
     const uploadData = createUploadData(file, filePath)
