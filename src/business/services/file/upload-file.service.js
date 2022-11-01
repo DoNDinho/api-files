@@ -7,8 +7,7 @@ const FILE_URL = process.env.FILE_URL
 const execute = async (file) => {
   try {
     const filePath = path.join(__dirname, '../../../../documents/file')
-    decodeBase64(filePath, file.base64)
-    return { message: filePath }
+    return decodeBase64(filePath, file.base64)
     const uploadData = createUploadData(file, filePath)
     await uploadFile(uploadData)
     deleteFile(filePath)
@@ -19,6 +18,7 @@ const execute = async (file) => {
 }
 
 const decodeBase64 = (filePath, base64) => {
+  return { message: filePath }
   fs.writeFileSync(filePath, base64, 'base64')
 }
 
